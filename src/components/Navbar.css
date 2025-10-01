@@ -5,7 +5,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 75px; /* Added a fixed height for better control */
+    height: 75px; 
     
     /* Space-theme colors and transparency */
     background: rgba(0, 0, 0, 0.85); 
@@ -20,21 +20,20 @@
     
     /* Layout: Use flex to hold the inner content structure */
     display: flex;
-    justify-content: center; /* Center the entire navbar's content */
+    justify-content: center; 
     align-items: center;
     
     z-index: 100;
 }
 
 /* --- New Inner Container Structure --- */
-/* We need to apply the side padding (40px) and the space-between logic to an inner element */
-#main-navbar > * {
-    width: 100%; /* Take up the full width of the navbar */
-    max-width: 1400px; /* Optional: Sets a maximum content width for very large screens */
+#main-navbar > div {
+    width: 100%; 
+    max-width: 1400px;
     display: flex;
-    justify-content: space-between; /* This handles spacing out the logo, links, and buttons */
+    justify-content: space-between; 
     align-items: center;
-    padding: 0 40px; /* Apply horizontal padding here, pulling content inward */
+    padding: 0 40px; 
 }
 /* ------------------------------------- */
 
@@ -81,7 +80,7 @@
 
 .navbar-controls {
     display: flex;
-    gap: 15px; /* Spacing between the two buttons */
+    gap: 15px; 
     align-items: center;
 }
 
@@ -95,6 +94,7 @@
     transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
 }
 
+/* Login button (non-primary) */
 .login-btn {
     background: transparent;
     color: #FFFFFF;
@@ -106,6 +106,7 @@
     border-color: #FFFFFF;
 }
 
+/* Sign Up button (primary CTA) */
 .signup-btn {
     background: #0077FF; 
     color: white;
@@ -116,4 +117,31 @@
     background: #0055CC;
     box-shadow: 0 0 15px rgba(0, 119, 255, 0.8); 
     transform: translateY(-1px);
+}
+
+/* --- New Profile Button Styles --- */
+.profile-btn {
+    /* Make the button circular and centered */
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: #33AAFF; /* Blue color for profile */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    box-shadow: 0 0 10px rgba(51, 170, 255, 0.6);
+}
+
+.profile-btn:hover {
+    background-color: #0088CC;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(51, 170, 255, 1);
+}
+
+.profile-svg {
+    width: 28px;
+    height: 28px;
 }
