@@ -1,0 +1,105 @@
+/* Signup.css: Shares most styles with Login.css for consistency. */
+
+/* Basic container positioning is identical to center the form */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 50; 
+}
+
+/* Changed class name from .login-box to .signup-box for structural clarity */
+.signup-box {
+    width: 400px; /* Slightly wider for the extra field */
+    padding: 40px;
+    background: rgba(15, 30, 50, 0.92); /* Slightly darker/different shade than login */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(150, 70, 255, 0.3); /* Purple/teal border for visual distinction */
+    backdrop-filter: blur(10px);
+    color: #CCEEFF;
+}
+
+.signup-box h2 {
+    margin-bottom: 30px;
+    color: #CCEEFF;
+    text-align: center;
+    font-size: 2em;
+    font-weight: 300;
+}
+
+/* --- Shared Input and Button Styles (Copied from Login.css) --- */
+
+.input-group {
+    margin-bottom: 25px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    font-weight: 400;
+    color: #AAAAAA;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #9933FF; /* Distinct color for signup inputs */
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #CC66FF; 
+    outline: none;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.auth-button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #9933FF; /* Purple/Magenta CTA */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(153, 51, 255, 0.4);
+}
+
+.auth-button:hover {
+    background-color: #7722CC;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(153, 51, 255, 0.6);
+}
+
+.auth-switch {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #AAAAAA;
+}
+
+.auth-switch a {
+    color: #CC66FF;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.auth-switch a:hover {
+    color: #FF99FF;
+}
