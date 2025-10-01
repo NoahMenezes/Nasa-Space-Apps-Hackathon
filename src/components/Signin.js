@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import './Signup.css'; // Note: Linking to its own CSS file
+import './Signup.css';
 
-const Signup = () => {
+const Signin = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
-    e.preventDefault();
     // Here you would typically call a registration/sign-up API
     console.log('Signing up with:', { username, email, password });
     alert('Sign-Up attempt initiated. Check console for details.');
@@ -65,4 +64,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Signin;

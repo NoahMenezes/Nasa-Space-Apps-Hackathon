@@ -1,19 +1,39 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+
+// Import all components from the components directory
 import Background from './components/Background';
-import Navbar from './components/Navbar'; // Import the new Navbar component
+import Navbar from './components/Navbar';
+import Login from './components/Login';
+// Signin.js contains the Registration/Sign Up UI.
+import SigninComponent from './components/Signin'; 
+import Profile from './components/Profile'; // <-- New Profile Component Import
 
 function App() {
   return (
+    // REMOVED <Router> WRAPPER HERE to fix nested router error.
     <div className="App">
-      {/* 1. Navbar is positioned at the top with a high Z-index */}
-      <Navbar /> 
-      
-      {/* 2. Background runs the 3D scene in the back */}
+      {/* Navbar and Background are outside Routes so they are always visible */}
+      <Navbar />
       <Background />
       
-      {/* Any other content, like foreground text, should be a sibling here and also use z-index to appear above the background */}
+      {/* 2. Define the Routes for component visibility */}
+      <Routes>
+        {/* Default/Home Route: Renders nothing specific (just navbar/background) */}
+        <Route path="/" element={null} /> 
+        
+        {/* Login Route: Renders the Login component */}
+        <Route path="/login" element={<Login />} />
+        
+        /* Signup Route: Renders the registration component */
+        <Route path="/signup" element={<SigninComponent />} />
+
+        {/* NEW: Profile Route. Renders the Profile component when user navigates to /profile */}
+        <Route path="/profile" element={<Profile />} /> 
+      </Routes>
     </div>
+    // REMOVED </Router> WRAPPER HERE
   );
 }
 
