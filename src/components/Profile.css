@@ -1,0 +1,97 @@
+/* Profile.css */
+
+/* Reuses .auth-container styles from Login/Signin CSS for centering */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 50; 
+}
+
+.profile-box {
+    width: 450px;
+    padding: 30px;
+    background: rgba(10, 25, 45, 0.95); /* Darker background for focus */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(153, 204, 255, 0.4); /* Light blue border */
+    backdrop-filter: blur(12px);
+    color: #CCEEFF;
+    text-align: center;
+}
+
+.profile-header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(153, 204, 255, 0.1);
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 50%;
+    background-color: #0077FF;
+    color: white;
+    font-size: 2em;
+    font-weight: 700;
+    margin: 0 auto 15px;
+    border: 3px solid #66CCFF;
+}
+
+.profile-box h2 {
+    font-size: 2em;
+    margin: 0;
+    font-weight: 400;
+}
+
+.rank {
+    color: #99CCFF;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+.profile-details {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+    font-size: 1em;
+    color: #DDDDDD;
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+}
+
+.detail-item strong {
+    color: #CCEEFF;
+}
+
+.logout-button {
+    background-color: #CC3366; /* Reddish tone for log out */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 20px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(204, 51, 102, 0.4);
+}
+
+.logout-button:hover {
+    background-color: #AA2255;
+    box-shadow: 0 6px 20px rgba(204, 51, 102, 0.6);
+}
