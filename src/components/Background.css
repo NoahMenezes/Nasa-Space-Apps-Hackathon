@@ -34,3 +34,28 @@ body {
     height: 100vh;
     overflow: hidden;
 }
+/* Background.css */
+
+/* ... (other styles) ... */
+
+#info-overlay {
+    position: absolute;
+    /* CHANGE THIS VALUE: Move it down to clear the larger navbar */
+    top: 90px; 
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 14px;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    z-index: 10;
+}
+
+#info-overlay p {
+    margin: 5px 0;
+}
+
+/* ... (rest of the file) ... */

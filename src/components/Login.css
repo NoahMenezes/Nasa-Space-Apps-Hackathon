@@ -1,0 +1,102 @@
+/* Styling specific to the Login form */
+
+.auth-container {
+    /* Ensures the form is centered, assuming this is rendered within App.js */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 50; /* Place above the Three.js background (z-index 1) but below the navbar (z-index 100) */
+}
+
+.login-box {
+    width: 380px;
+    padding: 40px;
+    background: rgba(10, 25, 45, 0.9); /* Dark blue/space background with transparency */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(70, 100, 150, 0.3); /* Subtle blue border */
+    backdrop-filter: blur(10px);
+    color: #CCEEFF;
+}
+
+.login-box h2 {
+    margin-bottom: 30px;
+    color: #CCEEFF;
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: 300;
+}
+
+.input-group {
+    margin-bottom: 25px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    font-weight: 400;
+    color: #AAAAAA;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.3); /* Dark input background */
+    border: 1px solid #0055AA;
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-size: 1em;
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #00CCFF; /* Bright focus glow */
+    outline: none;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.auth-button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #0077FF; /* Primary blue CTA */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 119, 255, 0.4);
+}
+
+.auth-button:hover {
+    background-color: #0055CC;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 119, 255, 0.6);
+}
+
+.auth-switch {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #AAAAAA;
+}
+
+.auth-switch a {
+    color: #00CCFF;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.auth-switch a:hover {
+    color: #66FFFF;
+}
