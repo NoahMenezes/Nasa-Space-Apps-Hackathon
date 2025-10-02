@@ -9,6 +9,7 @@ import Login from './components/Login';
 // Signin.js contains the Registration/Sign Up UI.
 import SigninComponent from './components/Signin'; 
 import Profile from './components/Profile'; // <-- New Profile Component Import
+import SearchEngine from './components/SearchEngine'; // <-- NEW IMPORT
 
 function App() {
   return (
@@ -26,11 +27,14 @@ function App() {
         {/* Login Route: Renders the Login component */}
         <Route path="/login" element={<Login />} />
         
-        /* Signup Route: Renders the registration component */
+        {/* Signup Route: Renders the registration component */}
         <Route path="/signup" element={<SigninComponent />} />
 
         {/* NEW: Profile Route. Renders the Profile component when user navigates to /profile */}
         <Route path="/profile" element={<Profile />} /> 
+        
+        {/* NEW: Search Engine Route. Renders the SearchEngine component at /search */}
+        <Route path="/search" element={<SearchEngine />} /> 
       </Routes>
     </div>
     // REMOVED </Router> WRAPPER HERE

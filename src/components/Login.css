@@ -1,7 +1,6 @@
 /* Styling specific to the Login form */
 
 .auth-container {
-    /* Ensures the form is centered, assuming this is rendered within App.js */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,93 +9,184 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 50; /* Place above the Three.js background (z-index 1) but below the navbar (z-index 100) */
+    z-index: 50; 
 }
 
+/* ------------------ KEY IMPROVEMENT: GLOW ANIMATION ------------------ */
+@keyframes neon-glow-enhanced {
+    0% { 
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 
+                    0 0 10px rgba(0, 204, 255, 0.5); 
+    }
+    50% { 
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 
+                    0 0 25px rgba(0, 204, 255, 0.8), 
+                    0 0 40px rgba(0, 204, 255, 0.3); 
+    }
+    100% { 
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 
+                    0 0 10px rgba(0, 204, 255, 0.5); 
+    }
+}
+
+@keyframes flicker-subtle {
+    0%, 100% { opacity: 1; }
+    5% { opacity: 0.98; }
+    10% { opacity: 1; }
+    15% { opacity: 0.99; }
+    20% { opacity: 1; }
+    25% { opacity: 0.97; }
+    30% { opacity: 1; }
+}
+
+@keyframes pulse {
+    from { transform: scale(1); box-shadow: 0 6px 25px rgba(0, 204, 255, 0.6); }
+    to { transform: scale(1.01); box-shadow: 0 8px 30px rgba(0, 204, 255, 0.9); }
+}
+/* ---------------------------------------------------------------------- */
+
+
 .login-box {
-    width: 380px;
-    padding: 40px;
-    background: rgba(10, 25, 45, 0.9); /* Dark blue/space background with transparency */
+    width: 450px; 
+    padding: 50px; 
+    background: rgba(10, 25, 45, 0.7); 
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(70, 100, 150, 0.3); /* Subtle blue border */
-    backdrop-filter: blur(10px);
+    border: 1px solid rgba(70, 100, 150, 0.5); 
+    backdrop-filter: blur(15px); 
     color: #CCEEFF;
+    
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7),
+                0 0 15px rgba(0, 204, 255, 0.4); 
+    
+    animation: neon-glow-enhanced 3s ease-in-out infinite alternate, 
+               flicker-subtle 10s infinite step-end;
+    transition: transform 0.5s ease-out; 
+}
+
+/* Subtle 3D lift on hover */
+.login-box:hover {
+    transform: perspective(1000px) rotateY(1deg) scale(1.02);
 }
 
 .login-box h2 {
-    margin-bottom: 30px;
-    color: #CCEEFF;
+    margin-bottom: 35px; 
+    color: #00CCFF; 
     text-align: center;
-    font-size: 1.8em;
-    font-weight: 300;
+    font-size: 2.2em; 
+    font-weight: 400;
+    text-shadow: 0 0 8px rgba(0, 204, 255, 0.8); 
 }
 
 .input-group {
-    margin-bottom: 25px;
+    margin-bottom: 30px; 
 }
 
 .input-group label {
     display: block;
-    margin-bottom: 8px;
-    font-size: 0.95em;
-    font-weight: 400;
-    color: #AAAAAA;
+    margin-bottom: 10px; 
+    font-size: 1.05em; 
+    font-weight: 500;
+    color: #99EEFF; 
+    letter-spacing: 0.5px;
+    transition: color 0.3s;
 }
 
+/* ------------------ INPUT BAR VISIBILITY AND SPACING ADJUSTMENTS ------------------ */
 .input-group input {
     width: 100%;
-    padding: 12px 15px;
-    background: rgba(0, 0, 0, 0.3); /* Dark input background */
-    border: 1px solid #0055AA;
-    border-radius: 8px;
+    padding: 12px 15px; 
+    
+    /* Make background transparent */
+    background: transparent; 
+    
+    /* Reintroducing a subtle border for definition */
+    border: 1px solid rgba(102, 255, 255, 0.3); /* Light blue border */
+    
+    border-radius: 8px; /* Slightly rounded corners for a softer look */
     color: #FFFFFF;
-    font-size: 1em;
-    box-sizing: border-box; /* Include padding in the element's total width and height */
-    transition: border-color 0.3s, background-color 0.3s;
+    font-size: 1em; 
+    box-sizing: border-box;
+    transition: border-color 0.4s, box-shadow 0.4s;
+    
+    /* Adding a subtle inner shadow for depth and to simulate "pressed" */
+    box-shadow: inset 0 0 8px rgba(0, 204, 255, 0.2); 
+    
+    /* Adding text-shadow for better readability against a potentially busy background */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8); 
 }
 
 .input-group input:focus {
-    border-color: #00CCFF; /* Bright focus glow */
+    /* Background remains transparent, but border and shadow intensify */
+    background: transparent; 
+    border-color: #66FFFF; 
     outline: none;
-    background: rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 12px rgba(102, 255, 255, 0.4), 
+                0 0 15px rgba(102, 255, 255, 0.6); /* Outer glow on focus */
 }
 
+/* ------------------ BUTTON TRANSPARENCY AND GLOW ------------------ */
 .auth-button {
     width: 100%;
-    padding: 12px;
-    margin-top: 20px;
-    background-color: #0077FF; /* Primary blue CTA */
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1em;
-    font-weight: 600;
+    padding: 16px; 
+    margin-top: 30px; 
+    /* Make button background transparent */
+    background-color: transparent; 
+    color: #00CCFF; /* Text color is a vibrant blue */
+    border: 2px solid #00CCFF; /* Visible border for the button */
+    border-radius: 10px;
+    font-size: 1.25em; 
+    font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
-    box-shadow: 0 4px 15px rgba(0, 119, 255, 0.4);
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s, color 0.3s;
+    
+    /* Initial glow for the transparent button */
+    box-shadow: 0 0 20px rgba(0, 204, 255, 0.6); 
+    animation: pulse-transparent 1.5s infinite alternate; 
 }
+
+/* New pulse animation for transparent button, focusing on glow */
+@keyframes pulse-transparent {
+    from { 
+        transform: scale(1); 
+        box-shadow: 0 0 20px rgba(0, 204, 255, 0.6), 
+                    0 0 10px rgba(0, 204, 255, 0.4) inset; 
+    }
+    to { 
+        transform: scale(1.01); 
+        box-shadow: 0 0 30px rgba(0, 204, 255, 0.9), 
+                    0 0 15px rgba(0, 204, 255, 0.6) inset; 
+    }
+}
+
 
 .auth-button:hover {
-    background-color: #0055CC;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 119, 255, 0.6);
+    background-color: rgba(0, 204, 255, 0.1); /* Slight fill on hover */
+    color: #CCFFFF; /* Text brightens on hover */
+    transform: translateY(-4px) scale(1.01); 
+    box-shadow: 0 0 40px rgba(0, 204, 255, 1.5),
+                0 0 20px rgba(0, 204, 255, 0.8) inset; /* Intense glow on hover */
+    filter: brightness(1.1); 
+    animation: none; 
 }
 
+/* ------------------------------------------------------------------ */
+
+
 .auth-switch {
-    margin-top: 30px;
+    margin-top: 45px; 
     text-align: center;
-    font-size: 0.9em;
+    font-size: 1em; 
     color: #AAAAAA;
 }
 
 .auth-switch a {
-    color: #00CCFF;
+    color: #66FFFF; 
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s;
+    transition: color 0.3s, text-shadow 0.3s;
 }
 
 .auth-switch a:hover {
-    color: #66FFFF;
+    color: #CCFFFF;
+    text-shadow: 0 0 7px #66FFFF; 
 }

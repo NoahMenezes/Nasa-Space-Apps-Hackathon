@@ -15,11 +15,12 @@ const Login = () => {
   return (
     <div className="auth-container">
       <div className="login-box">
-        <h2>Welcome Back, Explorer! 🌌</h2>
+        {/* Changed text and emoji for more space-opera aesthetic */}
+        <h2>Access Terminal 🛰️</h2> 
         <form onSubmit={handleSubmit}>
           
           <div className="input-group">
-            <label htmlFor="email">Email Address</label>
+            {/* INPUT FIRST for CSS Adjacent Sibling Selector */}
             <input
               type="email"
               id="email"
@@ -27,10 +28,12 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
+            {/* LABEL SECOND */}
+            <label htmlFor="email">Email Address</label> 
           </div>
 
           <div className="input-group">
-            <label htmlFor="password">Password</label>
+            {/* INPUT FIRST for CSS Adjacent Sibling Selector */}
             <input
               type="password"
               id="password"
@@ -38,15 +41,17 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
+            {/* LABEL SECOND */}
+            <label htmlFor="password">Password</label>
           </div>
 
           <button type="submit" className="auth-button">
-            Login
+            Engage Drive
           </button>
         </form>
         
         <p className="auth-switch">
-          New to Deep Space Explorer? <a href="/signup">Create an account</a>
+          New to Deep Space Explorer? <a href="/signup">Establish Credentials</a>
         </p>
       </div>
     </div>
