@@ -1,38 +1,112 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Navbar.css';
-// NOTE: For a multi-page app using React Router, you should ideally use the <Link> component
-// from 'react-router-dom'. I am keeping the <a> tag structure you provided and updating the href.
 
 const Navbar = () => {
-    return (
-        <nav id="main-navbar">
-            {/* New Inner Container Div */}
-            <div> 
-                <div className="navbar-logo">
-                    <span role="img" aria-label="Rocket">🚀</span> Deep Space Explorer
-                </div>
-                <ul className="navbar-links">
-                    <li><a href="/">Home</a></li>
-                    {/* UPDATED HREF to point to the new /search route */}
-                    <li><a href="/search">Search Engine</a></li> 
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div className="navbar-controls">
-                    {/* Login Button */}
-                    <a href="/login">
-                        <button className="auth-nav-btn login-btn">Login</button>
-                    </a>
-                    
-                    {/* Sign Up Button (Primary CTA) */}
-                    <a href="/signup">
-                        <button className="auth-nav-btn signup-btn">Sign Up</button>
-                    </a>
-                </div>
-            </div>
-            {/* End Inner Container Div */}
-        </nav>
-    );
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  const handleNavClick = (path) => {
+    closeMobileMenu();
+    navigate(path);
+    window.scrollTo(0, 0);
+  };
+
+  return (
+    <nav id="main-navbar" className={isScrolled ? 'scrolled' : ''}>
+      <div className="nav-container">
+        <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+          <span role="img" aria-label="Rocket">🚀</span> Deep Space Explorer
+        </Link>
+        
+        <div className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
+          <Link 
+            to="/" 
+            className={location.pathname === '/' ? 'active' : ''}
+            onClick={() => handleNavClick('/')}
+          >
+            Home
+          </Link>
+          <Link 
+            to="/search" 
+            className={location.pathname === '/search' ? 'active' : ''}
+            onClick={() => handleNavClick('/search')}
+          >
+            Search
+          </Link>
+          <Link 
+            to="/about" 
+            className={location.pathname === '/about' ? 'active' : ''}
+            onClick={() => handleNavClick('/about')}
+          >
+            About
+          </Link>
+          <Link 
+            to="/contact" 
+            className={location.pathname === '/contact' ? 'active' : ''}
+            onClick={() => handleNavClick('/contact')}
+          >
+            Contact
+          </Link>
+        </div>
+        
+        <div className="auth-buttons">
+          <Link 
+            to="/login" 
+            className="login-btn"
+            onClick={closeMobileMenu}
+          >
+            Login
+          </Link>
+          <Link 
+            to="/signup" 
+            className="signup-btn"
+            onClick={closeMobileMenu}
+          >
+            Sign Up
+          </Link>
+        </div>
+        
+        <button 
+          className={`mobile-menu-btn ${isMobileMenuOpen ? 'active' : ''}`}
+          onClick={toggleMobileMenu}
+          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div className="mobile-menu-overlay" onClick={closeMobileMenu}></div>
+      )}
+    </nav>
+  );
 };
 
 export default Navbar;
